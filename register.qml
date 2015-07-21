@@ -5,6 +5,7 @@ import QtQuick.Window 2.2
 MainForm
 {
     id:form
+    anchors.fill:parent
 
     FontLoader{id:font_yekan; source:"qrc:/BYekan.ttf"}
     FontLoader{id:font_arial; source:"qrc:/arial.ttf"}
@@ -13,6 +14,7 @@ MainForm
     {
         id:root
         anchors.fill:parent
+        color:"#4c84b6"
 
         Item
         {
@@ -35,7 +37,7 @@ MainForm
                     font.family:font_yekan.name
                     font.pixelSize: parent.height/3
                     text:"نام:"
-                    color:"#212121"
+                    color:"#eceff1"
                 }
 
                 TextField
@@ -72,7 +74,7 @@ MainForm
                     font.family:font_yekan.name
                     font.pixelSize: parent.height/3
                     text:"نام خانوادگی:"
-                    color:"#212121"
+                    color:"#eceff1"
                 }
 
                 TextField
@@ -108,7 +110,7 @@ MainForm
                     font.family:font_yekan.name
                     font.pixelSize: parent.height/3
                     text:"نام کاربری:"
-                    color:"#212121"
+                    color:"#eceff1"
                 }
 
                 TextField
@@ -144,7 +146,7 @@ MainForm
                     font.family:font_yekan.name
                     font.pixelSize: parent.height/3
                     text:"شماره تلفن :"
-                    color:"#212121"
+                    color:"#eceff1"
                 }
 
                 TextField
@@ -180,7 +182,7 @@ MainForm
                     font.family:font_yekan.name
                     font.pixelSize: parent.height/3
                     text:"رمز عبور :"
-                    color:"#212121"
+                    color:"#eceff1"
                 }
 
                 TextField

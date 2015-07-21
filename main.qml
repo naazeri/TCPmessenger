@@ -10,6 +10,15 @@ ApplicationWindow
     height: 480
     visible: true
 
+    function gotoRegister()
+    {
+        var myComponent = Qt.createComponent("Register.qml");
+        if (myComponent.status == Component.Ready)
+        {
+            var registerQml = myComponent.createObject(window);
+        }
+    }
+
     MainForm
     {
         id:form
@@ -165,6 +174,11 @@ ApplicationWindow
                         KeyNavigation.up: button_register
                         KeyNavigation.tab: field_password
                         KeyNavigation.down: field_password
+
+                        onTextChanged:
+                        {
+                            DataBase.loginUserName=text
+                        }
                     }
                 }
 
@@ -202,6 +216,11 @@ ApplicationWindow
                         KeyNavigation.up: field_username
                         KeyNavigation.tab: button_login
                         KeyNavigation.down: button_login
+
+                        onTextChanged:
+                        {
+                            DataBase.loginPassword=text
+                        }
                     }
                 }
 
@@ -234,6 +253,7 @@ ApplicationWindow
                             {
                                 parent.y-=button_login_shadow.height
                                 button_login_shadow.y=button_login.height
+                                DataBase.doLogin()
                             }
                         }
 
@@ -279,6 +299,7 @@ ApplicationWindow
                             {
                                 parent.y-=button_register_shadow.height
                                 button_register_shadow.y=button_register.height
+                                gotoRegister()
                             }
                         }
 

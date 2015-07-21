@@ -4,7 +4,7 @@
         <file>MainForm.ui.qml</file>
         <file>BYekan.ttf</file>
         <file>arial.ttf</file>
-        <file>register.qml</file>
+        <file>Register.qml</file>
         <file>Messenger-icon.png</file>
     </qresource>
 </RCC>
