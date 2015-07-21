@@ -1,2 +1,2 @@
-# RegisterationForm
-A simple registeration form that uses XML as deligate of Qml and C++
+# TCPmessenger
+A simple messenger that provides real time one by one messaging
