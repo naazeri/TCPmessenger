@@ -18,61 +18,68 @@ ApplicationWindow
         FontLoader{id:font_yekan; source:"qrc:/BYekan.ttf"}
         FontLoader{id:font_arial; source:"qrc:/arial.ttf"}
 
-        Item
+        Rectangle
         {
-            id:splash
-            width:parent.width*2/3
-            height:parent.height/4
-            anchors.horizontalCenter: parent.horizontalCenter
-            y:parent.height/3
-            scale: 0
+            id:root
+            anchors.fill: parent
+            color:"#4c84b6"
 
-            Image
+            Item
             {
-                id:splash_image
-                width:height
-                height:parent.height
-                sourceSize.width:width
-                sourceSize.height:height
-                source:"qrc:/Messenger-icon.png"
-            }
+                id:splash
+                width:parent.width*2/3
+                height:parent.height/4
+                anchors.horizontalCenter: parent.horizontalCenter
+                y:parent.height/3
+                scale: 0
 
-            Text
-            {
-                id:splash_text
-                anchors.right:parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                font.family:font_arial.name
-                font.pixelSize:parent.height*2/3
-                text:"TCPM :)"
-                color:"#212121"
-            }
-
-            Behavior on scale
-            {
-                SpringAnimation
+                Image
                 {
-                    spring:2
-                    damping:.2
+                    id:splash_image
+                    width:height
+                    height:parent.height
+                    sourceSize.width:width
+                    sourceSize.height:height
+                    source:"qrc:/Messenger-icon.png"
+                }
+
+                Text
+                {
+                    id:splash_text
+                    anchors.right:parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.family:font_arial.name
+                    font.pixelSize:parent.height*2/3
+                    text:"TCPM :)"
+                    color:"white" //eceff1
+                }
+
+                Behavior on scale
+                {
+                    SpringAnimation
+                    {
+                        spring:2
+                        damping:.2
+                    }
+                }
+
+                Timer
+                {
+                    id:splash_timer
+                    interval:500
+                    running:true
+                    repeat:false
+                    onTriggered:
+                    {
+                        parent.scale=1
+                    }
                 }
             }
 
-            Timer
+            Item
             {
-                id:splash_timer
-                interval:500
-                running:true
-                repeat:false
-                onTriggered:
-                {
-                    parent.scale=1
-                }
+
             }
-        }
-
-        Item
-        {
-
         }
     }
 }
