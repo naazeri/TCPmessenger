@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
+        <file>BYekan.ttf</file>
+        <file>arial.ttf</file>
     </qresource>
 </RCC>
