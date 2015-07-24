@@ -253,6 +253,8 @@ ApplicationWindow
                             {
                                 parent.y-=button_login_shadow.height
                                 button_login_shadow.y=button_login.height
+                                DataBase.loginUserName=field_username.text
+                                DataBase.loginPassword=field_password.text
                                 DataBase.doLogin()
                             }
                         }

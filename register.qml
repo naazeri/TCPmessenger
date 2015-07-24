@@ -16,10 +16,21 @@ MainForm
         anchors.fill:parent
         color:"#4c84b6"
 
+        Text
+        {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top:parent.top
+            anchors.topMargin: height/3
+            font.family: font_yekan.name
+            font.pixelSize: parent.height/9
+            text:"ثبت نام"
+            color:"White"
+        }
+
         Item
         {
             width:parent.width/2
-            height:parent.height*2/3
+            height:parent.height/2
             anchors.centerIn:parent
             id:col
 
@@ -35,7 +46,7 @@ MainForm
                     anchors.right:parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.family:font_yekan.name
-                    font.pixelSize: parent.height/3
+                    font.pixelSize: parent.height/2
                     text:"نام:"
                     color:"#eceff1"
                 }
@@ -45,7 +56,7 @@ MainForm
                     id:field_firstName
                     anchors.left:parent.left
                     width:parent.width*0.9-text_username.implicitWidth
-                    height:parent.height/2
+                    height:parent.height/1.5
                     anchors.verticalCenter: parent.verticalCenter
                     horizontalAlignment: Text.AlignHCenter
                     placeholderText: "نام"
@@ -72,7 +83,7 @@ MainForm
                     anchors.right:parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.family:font_yekan.name
-                    font.pixelSize: parent.height/3
+                    font.pixelSize: parent.height/2
                     text:"نام خانوادگی:"
                     color:"#eceff1"
                 }
@@ -82,7 +93,7 @@ MainForm
                     id:field_lastName
                     anchors.left:parent.left
                     width:parent.width*0.9-text_username.implicitWidth
-                    height:parent.height/2
+                    height:parent.height/1.5
                     anchors.verticalCenter: parent.verticalCenter
                     horizontalAlignment: Text.AlignHCenter
                     placeholderText: "نام خانوادگی"
@@ -108,7 +119,7 @@ MainForm
                     anchors.right:parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.family:font_yekan.name
-                    font.pixelSize: parent.height/3
+                    font.pixelSize: parent.height/2
                     text:"نام کاربری:"
                     color:"#eceff1"
                 }
@@ -118,7 +129,7 @@ MainForm
                     id:field_username
                     anchors.left:parent.left
                     width:parent.width*0.9-text_username.implicitWidth
-                    height:parent.height/2
+                    height:parent.height/1.5
                     anchors.verticalCenter: parent.verticalCenter
                     horizontalAlignment: Text.AlignHCenter
                     placeholderText: "username"
@@ -144,7 +155,7 @@ MainForm
                     anchors.right:parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.family:font_yekan.name
-                    font.pixelSize: parent.height/3
+                    font.pixelSize: parent.height/2
                     text:"شماره تلفن :"
                     color:"#eceff1"
                 }
@@ -154,7 +165,7 @@ MainForm
                     id:field_phone
                     anchors.left:parent.left
                     width:parent.width*0.9-text_username.implicitWidth
-                    height:parent.height/2
+                    height:parent.height/1.5
                     anchors.verticalCenter: parent.verticalCenter
                     horizontalAlignment: Text.AlignHCenter
                     placeholderText: "09---------"
@@ -180,7 +191,7 @@ MainForm
                     anchors.right:parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     font.family:font_yekan.name
-                    font.pixelSize: parent.height/3
+                    font.pixelSize: parent.height/2
                     text:"رمز عبور :"
                     color:"#eceff1"
                 }
@@ -190,7 +201,7 @@ MainForm
                     id:field_password
                     anchors.left:parent.left
                     width:parent.width*0.9-text_username.implicitWidth
-                    height:parent.height/2
+                    height:parent.height/1.5
                     anchors.verticalCenter: parent.verticalCenter
                     horizontalAlignment: Text.AlignHCenter
                     placeholderText: "********"
@@ -201,6 +212,112 @@ MainForm
                     KeyNavigation.up: field_phone
                     KeyNavigation.tab: field_firstName
                     KeyNavigation.down: field_firstName
+                }
+            }
+        }
+
+        Item
+        {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top:col.bottom
+            anchors.topMargin: parent.height/24
+            width:col.width
+            height: parent.height/9
+
+            Rectangle
+            {
+                id:button_cancel
+                width:parent.width/3
+                height:parent.height*2/3
+                y:(parent.height-height)/2
+                anchors.right:parent.right
+                anchors.rightMargin:parent.width/9
+                color:"#5c98cd"
+
+                MouseArea
+                {
+                    anchors.fill:parent
+                    onPressed:
+                    {
+                        parent.y+=button_cancel_shadow.height
+                        button_cancel_shadow.y=button_cancel_shadow.height*-1
+                    }
+                    onReleased:
+                    {
+                        parent.y-=button_cancel_shadow.height
+                        button_cancel_shadow.y=button_cancel.height
+                        form.destroy()
+                    }
+                }
+
+                Rectangle
+                {
+                    id:button_cancel_shadow
+                    y:parent.height
+                    width:parent.width
+                    height:parent.height/10
+                    color:"#3d6a92"
+                }
+
+                Text
+                {
+                    id:button_cancel_text
+                    anchors.centerIn: parent
+                    font.family: font_yekan.name
+                    font.pixelSize:parent.height/2
+                    text:"بازگشت"
+                    color:"#eceff1"
+                }
+            }
+
+            Rectangle
+            {
+                id:button_register
+                width:parent.width/3
+                height:parent.height*2/3
+                y:(parent.height-height)/2
+                anchors.left:parent.left
+                anchors.leftMargin:parent.width/9
+                color:"#5c98cd"
+
+                MouseArea
+                {
+                    anchors.fill:parent
+                    onPressed:
+                    {
+                        parent.y+=button_register_shadow.height
+                        button_register_shadow.y=button_register_shadow.height*-1
+                    }
+                    onReleased:
+                    {
+                        parent.y-=button_register_shadow.height
+                        button_register_shadow.y=button_register.height
+                        DataBase.signupName=field_firstName.text
+                        DataBase.signupFamily=field_lastName.text
+                        DataBase.signupMobile=field_phone.text
+                        DataBase.signupPassword=field_password.text
+                        DataBase.signupUserName=field_username.text
+                        DataBase.doRegister()
+                    }
+                }
+
+                Rectangle
+                {
+                    id:button_register_shadow
+                    y:parent.height
+                    width:parent.width
+                    height:parent.height/10
+                    color:"#3d6a92"
+                }
+
+                Text
+                {
+                    id:button_register_text
+                    anchors.centerIn: parent
+                    font.family: font_yekan.name
+                    font.pixelSize:parent.height/2
+                    text:"ثبت نام"
+                    color:"#eceff1"
                 }
             }
         }
